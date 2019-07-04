@@ -1,0 +1,2 @@
+# MAGIBOT
+Bot multiproposito
