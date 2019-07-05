@@ -32,6 +32,8 @@ class Core():
             regex = re.search(r"\w+",m.text)
             command = regex.group()
             m.text = m.text[regex.end()+1:]
+            if not m.text:
+                return None
         except Exception as e:
             print(e)
             return None
