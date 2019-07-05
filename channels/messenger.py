@@ -42,4 +42,7 @@ class Messenger(Channel,Client):
     def sendM(self,m):
         if m.m_type == "text":
             m_object = Message(text=m.text)
-        self.send(m_object, thread_id=m.thread_id, thread_type=m.thread_type)
+            self.send(m_object, thread_id=m.thread_id, thread_type=m.thread_type)
+        elif m.m_type == "img":
+            m_object = Message(text=m.text)
+            self.sendRemoteImage(m.img,message=m_object,thread_id=m.thread_id, thread_type=m.thread_type)
