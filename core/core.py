@@ -1,11 +1,15 @@
 from channels.messenger import Messenger
 import threading
-from services import wiki
+from services import wiki,mal
 import re
 class Core():
     ch = []
     ws = wiki.WikiService()
-    commands = {"wiki":ws.search}
+    mals = mal.MyAnimeListService()
+    commands = {"wiki":ws.search,
+                "asearch":mals.search,
+                "anime":mals.getAnime,
+                }
     def __init__(self,prefix="!"):
         print("Starting core...")
         self.ch.append(Messenger(prefix=prefix))
