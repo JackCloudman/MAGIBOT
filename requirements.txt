@@ -1,0 +1,3 @@
+wikipedia
+fbchat==1.6.4
+python-dotenv==0.10.3
