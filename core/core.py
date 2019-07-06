@@ -1,14 +1,16 @@
 from channels.messenger import Messenger
 import threading
-from services import wiki,mal
+from services import wiki,mal,voice
 import re
 class Core():
     ch = []
     ws = wiki.WikiService()
     mals = mal.MyAnimeListService()
+    tts = voice.VoiceService()
     commands = {"wiki":ws.search,
                 "asearch":mals.search,
                 "anime":mals.getAnime,
+                "tts":tts.tts,
                 }
     def __init__(self,prefix="!"):
         print("Starting core...")
@@ -27,7 +29,10 @@ class Core():
                 if c.queue:
                     result = self.execute(c.queue[0])
                     if result:
-                        c.sendM(result)
+                        try:
+                            c.sendM(result)
+                        except Exception as e:
+                            print(e)
                     c.queue.pop(0)
 
     def execute(self,m):
