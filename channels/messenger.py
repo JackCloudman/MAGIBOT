@@ -46,3 +46,5 @@ class Messenger(Channel,Client):
         elif m.m_type == "img":
             m_object = Message(text=m.text)
             self.sendRemoteImage(m.img,message=m_object,thread_id=m.thread_id, thread_type=m.thread_type)
+        elif m.m_type == "voice":
+            self.sendRemoteVoiceClips(m.audio,thread_id=m.thread_id, thread_type=m.thread_type)
