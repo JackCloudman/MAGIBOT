@@ -1,18 +1,23 @@
 from channels.messenger import Messenger
 import threading
 from services import wiki,mal,voice,weather
+from services.translate import YandexTranslate as YT
 import re
 class Core():
     ch = []
     ws = wiki.WikiService()
     mals = mal.MyAnimeListService()
     tts = voice.VoiceService()
-    wx= weather.WeatherService()
+    wx = weather.WeatherService()
+    t = YT()
+
     commands = {"wiki":ws.search,
                 "asearch":mals.search,
                 "anime":mals.getAnime,
                 "tts":tts.tts,
-                "wx":wx.weatherByplace
+                "wx":wx.weatherByplace,
+                "t": t.translate,
+                "t_from":t.translate_from,
                 }
     def __init__(self,prefix="!"):
         print("Starting core...")

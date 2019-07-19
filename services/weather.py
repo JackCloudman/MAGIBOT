@@ -11,7 +11,7 @@ class WeatherService():
         r = requests.get(url=self.base_url+self.api_token)
         return r.json()
 
-    def weatherByplace(self,m= 'Mexico city'):
+    def weatherByplace(self,m):
         base_by_place = 'https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid='.format(m.text)
         try:
             r = requests.get(url=base_by_place+self.api_token)
