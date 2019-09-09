@@ -14,7 +14,7 @@ class SpamService():
 		self.Vectorizer = load('models/spamModel/vectroizer.pk1');
 
 	def is_spam(self,m):
-		data= self.Vectorizer.transform([str(text)])
+		data= self.Vectorizer.transform([m.text])
 		calculous=  self.Classifier.predict(data)
 		m.m_type ='text'
 		if str(calculous[0])== 'ham':
