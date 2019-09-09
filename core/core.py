@@ -1,6 +1,6 @@
 from channels.messenger import Messenger
 import threading
-from services import wiki,mal,voice,weather
+from services import wiki,mal,voice,weather, spam_message
 from services.translate import YandexTranslate as YT
 import re
 class Core():
@@ -10,6 +10,7 @@ class Core():
     tts = voice.VoiceService()
     wx = weather.WeatherService()
     t = YT()
+    spam = spam_message.SpamService()
 
     commands = {"wiki":ws.search,
                 "asearch":mals.search,
@@ -18,6 +19,7 @@ class Core():
                 "wx":wx.weatherByplace,
                 "t": t.translate,
                 "t_from":t.translate_from,
+                "is_spam":spam.is_spam,
                 }
     def __init__(self,prefix="!"):
         print("Starting core...")

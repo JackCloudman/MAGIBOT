@@ -3,3 +3,7 @@ fbchat==1.7
 python-dotenv==0.10.3
 git+git://github.com/AWConant/jikanpy.git
 yandex-translater
+numpy
+scikit-learn
+pandas
+joblib
