@@ -14,6 +14,7 @@ class Core():
     commands = {"wiki":ws.search,
                 "asearch":mals.search,
                 "anime":mals.getAnime,
+                "animeinfo":mals.getAllInfo,
                 "tts":tts.tts,
                 "wx":wx.weatherByplace,
                 "t": t.translate,
