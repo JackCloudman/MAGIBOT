@@ -1,6 +1,6 @@
 wikipedia
 fbchat==1.7
-python-dotenv==0.10.3
+python-dotenv==1.2.2
 git+git://github.com/AWConant/jikanpy.git
 yandex-translater
 numpy
